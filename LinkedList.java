@@ -7,7 +7,7 @@ public class LinkedList<T> implements List<T>
 		size=0;
 		head=null;
 	}
-	static class Node
+	public class Node
 	{
 		T data; 
 		Node next;
@@ -23,7 +23,7 @@ public class LinkedList<T> implements List<T>
 			head= new Node(item);
 		else
 		{
-			Node currrent=head;
+			Node current=head;
 			while(current.next!=null)
 			{
 				current=current.next;
@@ -55,10 +55,10 @@ public class LinkedList<T> implements List<T>
 	}
 	public T get(int pos)
 	{
-		Node get =head;
+		Node n =head;
 		for (int x=0;x<pos;x++)
 		{
-			get=get.next;
+			n=n.next;
 		}
 		return n.data;
 	}
@@ -69,7 +69,7 @@ public class LinkedList<T> implements List<T>
 			Node current=head;
 			head=head.next;
 			size--;
-			return current.data();
+			return current.data;
 		}
 		else{
 			Node prev =head;
@@ -80,6 +80,7 @@ public class LinkedList<T> implements List<T>
 			Node current =prev.next;
 			prev.next=current.next;
 			size--;
+			return current.data;
 		}
 	}
 	public int size()
